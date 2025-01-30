@@ -4,9 +4,9 @@ import {switchMap} from 'rxjs';
 import {toObservable} from '@angular/core/rxjs-interop';
 import {AsyncPipe, NgForOf} from '@angular/common';
 import {ImgUrlPipe, SvgIconComponent} from '@tt/common-ui';
-import {PostFeedComponent} from '@tt/posts';
 import {ProfileHeaderComponent} from '../../ui';
 import { ProfileService } from '@tt/data-access';
+import { PostFeedComponent } from '@tt/posts';
 
 @Component({
    selector: 'app-profile-page',

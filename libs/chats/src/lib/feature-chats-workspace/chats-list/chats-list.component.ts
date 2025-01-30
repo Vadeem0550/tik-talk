@@ -4,7 +4,7 @@ import { AsyncPipe } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { map, startWith, switchMap } from 'rxjs';
-import { ChatsService } from '@tt/data-access';
+import { ChatsService } from 'libs/data-access/src/lib/chats';
 
 @Component({
    selector: 'app-chats-list',

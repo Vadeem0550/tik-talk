@@ -1,4 +1,3 @@
-export * from './lib/dadata';
-export * from './lib/data-chats';
-export * from './lib/data-posts';
-export * from './lib/data-profile';
+export * from './lib/chats';
+export * from './lib/posts';
+export * from './lib/profile';

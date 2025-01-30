@@ -1,34 +1,48 @@
-const nx = require('@nx/eslint-plugin');
-const baseConfig = require('../../eslint.config.js');
 
 module.exports = [
-  ...baseConfig,
-  ...nx.configs['flat/angular'],
-  ...nx.configs['flat/angular-template'],
   {
-    files: ['**/*.ts'],
-    rules: {
-      '@angular-eslint/directive-selector': [
-        'error',
-        {
-          type: 'attribute',
-          prefix: 'tt',
-          style: 'camelCase',
-        },
-      ],
-      '@angular-eslint/component-selector': [
-        'error',
-        {
-          type: 'element',
-          prefix: 'tt',
-          style: 'kebab-case',
-        },
-      ],
-    },
+    ignores: ['**/dist'],
   },
   {
-    files: ['**/*.html'],
-    // Override or add rules here
-    rules: {},
-  },
+    'root': true,
+    'ignorePatterns': ['**/*'],
+    'plugins': ['@nx'],
+    'overrides': [
+      {
+        'files': ['*.ts', '*.tsx', '*.js', '*.jsx'],
+        'rules': {
+          '@nx/enforce-module-boundaries': [
+            'error',
+            {
+              'enforceBuildableLibDependency': true,
+              'allow': [],
+              'depConstraints': [
+                {
+                  'sourceTag': '*',
+                  'onlyDependOnLibsWithTags': ['*']
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        'files': ['*.ts', '*.tsx'],
+        'extends': ['plugin:@nx/typescript'],
+        'rules': {}
+      },
+      {
+        'files': ['*.js', '*.jsx'],
+        'extends': ['plugin:@nx/javascript'],
+        'rules': {}
+      },
+      {
+        'files': ['*.spec.ts', '*.spec.tsx', '*.spec.js', '*.spec.jsx'],
+        'env': {
+          'jest': true
+        },
+        'rules': {}
+      }
+    ]
+  }
 ];
