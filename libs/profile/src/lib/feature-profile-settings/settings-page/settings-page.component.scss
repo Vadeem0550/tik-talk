@@ -1,0 +1,83 @@
+:host {
+   min-height: 100dvh;
+   display: grid;
+   grid-gap: 48px;
+   padding: 24px;
+   grid-template-columns: 32px 1fr;
+}
+
+.profile-form {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.profile-form__wrapper {
+   height: calc(100dvh - (16px * 4));
+   display: flex;
+   overflow-y: scroll;
+   flex-direction: column;
+   justify-content: space-between;
+   padding: 32px;
+   border: 1px solid var(--light-color);
+   background: var(--dark-color);
+
+  &::-webkit-scrollbar {
+    background: transparent;
+  }
+}
+
+.two-columns {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   grid-gap: 20px;
+}
+
+.profile-label {
+}
+
+.profile-input {
+}
+
+.btn-action {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   & > div {
+      display: flex;
+      gap: 16px;
+   }
+}
+
+.basket {
+   width: 44px;
+   height: 44px;
+   padding: 14px;
+   background: transparent;
+   border: 1px solid var(--light-color);
+   color: var(--dynamic-color);
+   cursor: pointer;
+}
+
+.exit {
+   width: 44px;
+   height: 44px;
+   padding: 14px;
+   background: transparent;
+   border: 1px solid var(--light-color);
+   color: var(--light-color);
+   cursor: pointer;
+}
+
+.cancel {
+   width: 91px;
+   height: 44px;
+   background: transparent;
+   border: 1px solid var(--light-color);
+   color: var(--light-color);
+}
+
+.save {
+   width: 116px;
+   height: 44px;
+}

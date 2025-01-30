@@ -1,0 +1,10 @@
+:host {
+   height: 100dvh;
+   display: grid;
+   grid-template-columns: 300px 1fr;
+   overflow: hidden;
+}
+
+.workspace {
+   //height: calc(100dvh - (24px * 4));
+}

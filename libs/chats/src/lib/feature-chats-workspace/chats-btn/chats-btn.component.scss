@@ -1,0 +1,29 @@
+:host {
+   display: grid;
+   grid-template-columns: 32px 1fr;
+   width: 100%;
+   grid-gap: 16px;
+   background: none;
+   border: none;
+   border-bottom: var(--light-border-color);
+   padding: 24px 20px;
+   cursor: pointer;
+}
+
+:host:hover,
+:host:focus-visible,
+:host.active {
+   background: var(--dark-active-color);
+}
+
+.last-message__wrapper {
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   gap: 16px;
+   color: var(--light-color);
+}
+
+.chat-user {
+   color: var(--light-transparent-color);
+}

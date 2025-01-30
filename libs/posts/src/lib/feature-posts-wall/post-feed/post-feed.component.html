@@ -1,0 +1,5 @@
+<app-message-input class="post-input"></app-message-input>
+
+@for (post of feed(); track post.id) {
+<app-post [post]="post"></app-post>
+}

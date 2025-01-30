@@ -1,0 +1,39 @@
+<app-profile-filters> </app-profile-filters>
+
+<!--TODO третья реализация  -->
+<!--<div-->
+<!--  class="profile-card__wrapper"-->
+<!--  infiniteScroll-->
+<!--  [infiniteScrollDistance]="2"-->
+<!--  [infiniteScrollThrottle]="30"-->
+<!--  [infiniteScrollContainer]="'app-search-page'"-->
+<!--  [fromRoot]="true"-->
+<!--  (scrolled)="onScroll()"-->
+<!--&gt;-->
+<!--  @for (profile of infiniteProfiles$ | async; track profile.id; ) {-->
+<!--    <app-profile-card-->
+<!--      [profile]="profile"></app-profile-card>-->
+<!--  }-->
+<!--</div>-->
+
+
+<!--TODO вторая реализация  -->
+<div class="profile-card__wrapper" waIntersectionObserver waIntersectionThreshold="0.5">
+  @for (profile of profiles(); track profile.id; let last = $last) {
+    <app-profile-card
+      (waIntersectionObservee)="last? onIntersection($event) : null"
+      [profile]="profile"></app-profile-card>
+  }
+</div>
+
+
+<!--TODO первая реализация  -->
+<!--    @if (last) {-->
+<!--      @defer (on viewport) {-->
+<!--        <tt-infinite-scroll-trigger-->
+<!--          (loaded)="timeToFetch()"-->
+<!--        ></tt-infinite-scroll-trigger>-->
+<!--      } @placeholder {-->
+<!--        <div></div>-->
+<!--      }-->
+<!--   }-->

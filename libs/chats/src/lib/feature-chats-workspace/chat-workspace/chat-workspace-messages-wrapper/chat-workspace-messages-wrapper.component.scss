@@ -1,0 +1,25 @@
+:host {
+   display: flex;
+   flex-direction: column;
+   height: calc(100dvh - (16px * 4));
+   padding: 16px 20px;
+}
+
+.messages-wrapper {
+   display: flex;
+   flex: 1;
+   gap: 15px;
+   flex-direction: column;
+   padding-bottom: 20px;
+   overflow-y: scroll;
+
+   &::-webkit-scrollbar {
+      background: transparent;
+   }
+}
+
+.message-input {
+   position: sticky;
+   bottom: 0;
+   z-index: 1;
+}
