@@ -8,7 +8,7 @@ import {
 import { debounceTime, firstValueFrom, fromEvent } from 'rxjs';
 import { MessageInputComponent } from '../../../../../chats/src/lib/ui/message-input/message-input.component';
 import {PostComponent} from '../post/post.component';
-import { PostService } from 'libs/data-access/src/lib/data-posts/services/post.service';
+import { PostService } from 'libs/data-access/src/lib/posts/services/post.service';
 
 @Component({
    selector: 'app-post-feed',

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, input} from '@angular/core';
 import {AvatarCircleComponent} from '@tt/common-ui';
-import { LastMessageRes } from 'libs/data-access/src/lib/data-chats/interfaces/chats.interface';
+import { LastMessageRes } from 'libs/data-access/src/lib/chats/interfaces/chats.interface';
 
 @Component({
    selector: 'button[chats]',
