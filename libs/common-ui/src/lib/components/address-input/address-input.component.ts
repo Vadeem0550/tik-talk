@@ -1,9 +1,9 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, inject, signal} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
-import {AsyncPipe, JsonPipe} from '@angular/common';
-import {TtInputComponent} from '../tt-input/tt-input.component';
-import {debounceTime, switchMap, tap} from 'rxjs';
-import { DadataServices } from '@tt/data-access';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, inject, signal } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { AsyncPipe, JsonPipe } from '@angular/common';
+import { TtInputComponent } from '../tt-input/tt-input.component';
+import { debounceTime, switchMap, tap } from 'rxjs';
+import { DadataServices } from '../../../../../profile/src/lib/dadata';
 
 @Component({
    selector: 'tt-address-input',
@@ -31,7 +31,7 @@ export class AddressInputComponent implements ControlValueAccessor {
   isDropdownOpened = signal<boolean>(false);
 
   #dadataServices = inject(DadataServices);
-  //#cdr = inject(ChangeDetectorRef)
+  #cdr = inject(ChangeDetectorRef)
 
   suggestions$ = this.innerSearchControl.valueChanges
     .pipe(
@@ -73,5 +73,6 @@ export class AddressInputComponent implements ControlValueAccessor {
     });
 
     this.onChange(city)
+    this.#cdr.detectChanges()
   }
 }
