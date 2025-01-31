@@ -1,7 +1,6 @@
-import { Chat, LastMessageRes, Message } from './interfaces/chats.interface';
-import { ChatsService } from './services/chats.service';
+import {ChatsService} from './services/chats.service';
+import {Chat, Message} from './interfaces/chats.interface';
 
-export { ChatsService };
-export type { Chat };
-export type { LastMessageRes };
-export type { Message };
+export {ChatsService}
+export type {Chat}
+export type {Message}

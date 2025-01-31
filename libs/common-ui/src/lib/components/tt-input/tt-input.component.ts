@@ -1,4 +1,12 @@
-import {ChangeDetectionStrategy, Component, forwardRef, input, signal} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  forwardRef,
+  inject,
+  input,
+  signal
+} from '@angular/core';
 import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 
@@ -24,6 +32,7 @@ export class TtInputComponent implements ControlValueAccessor {
    value: string | null = null;
 
    disabled = signal<boolean>(false);
+   #cdr = inject(ChangeDetectorRef)
 
    onChange: any;
    onTouched: any;
@@ -46,5 +55,6 @@ export class TtInputComponent implements ControlValueAccessor {
 
    onModelChange(value: string | null): void {
       this.onChange(value);
+      this.#cdr.detectChanges()
    }
 }

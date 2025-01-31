@@ -1,8 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, inject, Renderer2 } from '@angular/core';
 import { debounceTime, firstValueFrom, fromEvent } from 'rxjs';
-import { PostService } from 'libs/data-access/src/lib/posts';
-import { PostComponent } from '../post/post.component';
-import { MessageInputComponent } from '@tt/chats';
+import { MessageInputComponent } from '../../../../../chats/src/lib/ui/message-input/message-input.component';
+import {PostComponent} from '../post/post.component';
+import { PostService } from 'libs/data-access/src/lib/posts/services/post.service';
 
 @Component({
    selector: 'app-post-feed',
