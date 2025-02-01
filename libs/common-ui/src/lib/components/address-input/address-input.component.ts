@@ -3,7 +3,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModu
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { TtInputComponent } from '../tt-input/tt-input.component';
 import { debounceTime, switchMap, tap } from 'rxjs';
-import { DadataServices } from '../../../../../profile/src/lib/dadata';
+import { DadataServices } from '../../../../../data-access/src/lib/profile/dadata';
 
 @Component({
    selector: 'tt-address-input',
