@@ -1,0 +1,35 @@
+:host {
+  font-family: 'JetBrains Mono', sans-serif;
+}
+
+.community-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.community-page__title {
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 32px;
+  text-align: left;
+}
+
+.to-create-btn {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+
+  width: 218px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+}
+
+.to-create-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--dark-color);
+}

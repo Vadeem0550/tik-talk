@@ -1,0 +1,38 @@
+<!--@if (community) {-->
+  {{ community | json }}
+  <div class="community-card">
+    <div class="avatar-name">
+      <img
+        class="community-card__avatar"
+        [src]="community.avatarUrl | imgUrl"
+        [alt]="community.name" />
+    </div>
+
+    <div class="community-card__description">
+      {{ community.description }}
+    </div>
+
+    <div class="community-card__tags">
+      @for (skill of community.tags; track skill) {
+        <div class="skill-tags">
+          {{ skill }}
+        </div>
+      }
+    </div>
+    <div class="community-card__action-btn">
+      <div class="">
+        <button class="btn"
+                (click)="subscribeCommunity(community.isJoined)"
+        >Подписаться
+        </button>
+      </div>
+
+      <div class="">
+        <button class="btn"
+                (click)="onSendMessage(community.name)"
+        >->
+        </button>
+      </div>
+    </div>
+  </div>
+<!--}-->
