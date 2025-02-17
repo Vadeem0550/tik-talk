@@ -1,1 +1,7 @@
-<p>search-page works!</p>
+<tt-community-filters></tt-community-filters>
+
+<div class="community-card-wrapper">
+  @for (community of communities(); track community.id) {
+    <tt-community-card [community]="community"></tt-community-card>
+  }
+</div>

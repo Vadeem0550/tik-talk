@@ -33,7 +33,7 @@ export class SettingsPageComponent {
       lastName: ['', Validators.required],
       username: [{ value: '', disabled: true }, Validators.required],
       description: [''],
-      stack: [''],
+      stack: [null],
       city: [null],
     });
 

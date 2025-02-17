@@ -1,1 +1,50 @@
-<p>community-filters works!</p>
+<form class="community-search-form mt30" [formGroup]="communitySearchForm">
+  <label class="tt-form-label">
+    <span class="tt-form-label__text">Название сообщества</span>
+    <div class="input-wrapper">
+      <input
+        placeholder="Выберите"
+        class="tt-form-input search-input"
+        type="text"
+        formControlName="name"
+      />
+      <svg icon="search" class="search-icon"></svg>
+    </div>
+  </label>
+
+  <label class="tt-form-label">
+    <span class="tt-form-label__text">Тема</span>
+    <div class="input-wrapper">
+      <input
+        type="text"
+        class="tt-form-input search-input"
+        placeholder="Выберите"
+        [value]="selectedCommunity()?.themes || ''"
+        (click)="toggleDropdown()"
+      />
+      @if (isDropdownOpened()) {
+        <div class="dropdown">
+          @for (community of communities$ | async; track community.id) {
+            <button class="dropdown-btn" (click)="selectCommunity(community)">
+              {{ community.themes }}
+            </button>
+          }
+        </div>
+      }
+      <svg icon="search" class="search-icon"></svg>
+    </div>
+  </label>
+
+  <label class="tt-form-label">
+    <span class="tt-form-label__text">Теги</span>
+    <div class="input-wrapper">
+      <tt-stack-input
+        placeholder="Выберите"
+        class="search-input"
+        [triggerKey]="'Tab'"
+        formControlName="tags"
+      ></tt-stack-input>
+      <svg icon="search" class="search-icon"></svg>
+    </div>
+  </label>
+</form>

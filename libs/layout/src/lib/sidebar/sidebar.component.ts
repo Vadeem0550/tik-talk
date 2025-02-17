@@ -49,7 +49,12 @@ export class SidebarComponent implements OnInit {
          label: 'Поиск',
          icon: 'search',
          link: 'search'
-      }
+      },
+     {
+       label: 'Сообщества',
+       icon: 'communities',
+       link: 'communities'
+     }
    ];
 
   reconnect() {

@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, forwardRef, HostBinding, HostListener, Input} from '@angular/core';
-import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
-import {BehaviorSubject} from 'rxjs';
-import {AsyncPipe} from '@angular/common';
-import {SvgIconComponent} from '../svg-icon/svg-icon.component';
+import { ChangeDetectionStrategy, Component, forwardRef, HostBinding, HostListener, input, Input } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 
 @Component({
    selector: 'tt-stack-input',
@@ -25,9 +25,10 @@ import {SvgIconComponent} from '../svg-icon/svg-icon.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StackInputComponent implements ControlValueAccessor {
+  placeholder = input<string>();
+
    @Input() triggerKey: string = '';
    // @Input() stackQuantity = 10;
-
    innerInput = '';
    value$ = new BehaviorSubject<string[]>([]);
    #disabled = false;
@@ -85,11 +86,10 @@ export class StackInputComponent implements ControlValueAccessor {
 
    onTouched() {}
 
-   onTagDelete(i: number) {
-      const tags = this.value$.value;
-      tags.splice(i, 1);
-      this.value$.next(tags);
-
-      this.onChange(this.value$.value);
-   }
+  onTagDelete(i: number) {
+    const tags = [...this.value$.value];
+    tags.splice(i, 1);
+    this.value$.next(tags);
+    this.onChange(tags);
+  }
 }

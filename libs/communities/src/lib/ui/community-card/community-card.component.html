@@ -1,1 +1,44 @@
-<p>community-card works!</p>
+@if (community) {
+  <div class="community-card">
+    <div class="avatar-name">
+      <img
+        class="community-card__avatar"
+        [src]="community.avatarUrl | imgUrl"
+        [alt]="community.name" />
+
+      <div class="community-card__details">
+        {{ community.name }}
+        <div class="community-card__subscribers mt4">
+          {{ community.subscribersAmount }} subscribers
+        </div>
+      </div>
+    </div>
+
+    <div class="community-card__description">
+      @for (theme of community.themes; track theme) {
+        {{ theme }}
+      }
+    </div>
+
+    <div class="community-card__tags">
+      @for (skill of community.tags; track skill) {
+        <div class="skill-tags">
+          {{ skill }}
+        </div>
+      }
+    </div>
+
+    <div class="community-card__action-btn">
+      <div>
+        <button class="btn"
+                (click)="subscribeCommunity()">
+          {{ isJoined() ? 'Отписаться' : 'Подписаться' }}
+        </button>
+      </div>
+
+      <div>
+        <button class="btn" (click)="onSendMessage()">></button>
+      </div>
+    </div>
+  </div>
+}
